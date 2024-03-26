@@ -20,3 +20,17 @@ Connect the characteristics of dinosaurs to stock market concepts.
 5. DinoStock Challenges
 Complete challenges to earn rewards and enhance financial literacy skills.
 Face unique market scenarios and make informed decisions.
+
+To get Celery running after pulling from Github: 
+1. makemigrations, migrate, load fixture data for realstonks_app, install requirements.txt (installs celery)
+2. Run Redis Server:
+    sudo apt-get install redis-server
+    sudo service redis-server start
+    (Check if running with redis-cli ping. Will return Pong)
+    (Stop server with: sudo service redis-server stop)
+3. In seperate terminals:
+    a. Go into dinostocks/backend and run "python manage.py runserver"
+    b. Go into dinostocks/backend and run "celery -A dinostocks_proj worker -l info"
+    c. Go into dinostocks/backend and run "celery -A dinostocks_proj beat -l info"
+    d. Go into dinostocks/front_end/dino_stocks and run "npm run dev"
+    
